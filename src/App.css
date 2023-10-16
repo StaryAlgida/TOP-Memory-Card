@@ -1,0 +1,84 @@
+#root {
+  display: grid;
+  grid-template-rows: 80px 89vh 1fr;
+}
+
+header {
+  text-align: center;
+  background-color: #1a1a1a;
+  -webkit-box-shadow: 0px 31px 60px -25px rgba(47, 47, 64, 1);
+  -moz-box-shadow: 0px 31px 60px -25px rgba(47, 47, 64, 1);
+  box-shadow: 0px 31px 60px -25px rgba(47, 47, 64, 1);
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #1a1a1a;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.algida {
+  text-decoration: underline 2px rgba(251, 255, 0, 0.904);
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(https://r4.wallpaperflare.com/wallpaper/413/363/803/south-park-the-stick-of-truth-wallpaper-3f6c021fdd79d598375de26424c3c0e0.jpg)
+    no-repeat center fixed;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 100px;
+
+  background-color: rgba(73, 73, 73, 0.8);
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.menu h1 {
+  font-size: 2.2rem;
+}
+
+.dificulty {
+  display: flex;
+  gap: 10px;
+}
+
+.dificulty-button {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+
+  font-size: 1.2rem;
+}
+
+.dificulty-button:hover {
+  cursor: pointer;
+}
+
+.easy {
+  background-color: green;
+}
+
+.medium {
+  background-color: rgba(204, 167, 0, 0.8);
+}
+
+.hard {
+  background-color: rgba(255, 0, 0, 0.8);
+}

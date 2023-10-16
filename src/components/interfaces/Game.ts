@@ -7,6 +7,7 @@ interface Card {
 interface Game {
   points: number;
   cards: Card[];
+  dificulty: string;
 }
 
 export type { Game, Card };

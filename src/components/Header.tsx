@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <header>
-      <p>Memory Card</p>
+      <span className="title">SOUTH PARK</span>
     </header>
   );
 }

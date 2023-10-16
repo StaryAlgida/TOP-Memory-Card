@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer>
-      <p>Created by StaryAlgida</p>
+      <p className="algida">Created by StaryAlgida</p>
     </footer>
   );
 }
