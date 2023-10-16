@@ -1,13 +1,21 @@
 interface Card {
   id: string;
-  src: string;
+  img: string;
   is_clicked: boolean;
 }
 
 interface Game {
-  points: number;
+  score: number;
+  bestScore: number;
   cards: Card[];
-  dificulty: string;
+  difficulty: number;
+  isMenu: boolean;
+  isLoose: boolean;
 }
 
-export type { Game, Card };
+interface GameProps {
+  gameObj: Game;
+  setGameObj: React.Dispatch<React.SetStateAction<Game>>;
+}
+
+export type { Game, Card, GameProps };

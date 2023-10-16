@@ -1,15 +1,25 @@
 import { useState } from "react";
-import Menu from "./interfaces/game/Menu";
-import GameStart from "./interfaces/game/GameState";
+import Menu from "./game/Menu";
+import GameStart from "./game/GameStart";
+import { Game } from "./interfaces/Game";
 
 export default function Section() {
-  const [isMenu, setIsMenu] = useState<boolean>(true);
+  const [gameObj, setGameObj] = useState<Game>({
+    score: 0,
+    bestScore: 0,
+    cards: [],
+    difficulty: 0,
+    isMenu: true,
+    isLoose: false,
+  });
 
   return (
     <section>
-      {isMenu ? <Menu isMenu={isMenu} setIsMenu={setIsMenu} /> : <GameStart />}
-
-      {/* game */}
+      {gameObj.isMenu ? (
+        <Menu gameObj={gameObj} setGameObj={setGameObj} />
+      ) : (
+        <GameStart gameObj={gameObj} setGameObj={setGameObj} />
+      )}
     </section>
   );
 }
