@@ -18,4 +18,9 @@ interface GameProps {
   setGameObj: React.Dispatch<React.SetStateAction<Game>>;
 }
 
-export type { Game, Card, GameProps };
+interface CardsPrint {
+  gameObj: Game;
+  handleClick: (el: Card) => void;
+}
+
+export type { Game, Card, GameProps, CardsPrint };

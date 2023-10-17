@@ -53,7 +53,6 @@ export default function Menu({ gameObj, setGameObj }: GameProps) {
         is_clicked: false,
       });
       list.splice(randomIndex, 1);
-      console.log(`i:${i}`);
     }
 
     setGameObj({ ...newObj });
