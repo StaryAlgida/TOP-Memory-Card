@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Menu from "./game/Menu";
 import GameStart from "./game/GameStart";
 import { Game } from "./interfaces/Game";
@@ -8,14 +8,14 @@ function randomInRange(min: number, max: number) {
   return Math.random() * (max - min) + min;
 }
 
-const canvasStyles = {
-  position: "fixed",
-  pointerEvents: "none",
-  width: "100%",
-  height: "100%",
-  top: 0,
-  left: 0,
-};
+// const canvasStyles = {
+//   position: "fixed",
+//   pointerEvents: "none",
+//   width: "100%",
+//   height: "100%",
+//   top: 0,
+//   left: 0,
+// };
 
 function getAnimationSettings(originXA: number, originXB: number) {
   return {
@@ -45,26 +45,35 @@ export default function Section() {
   //
   const refAnimationInstance = useRef(null);
   const [intervalId, setIntervalId] = useState();
-
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const getInstance = useCallback((instance) => {
     refAnimationInstance.current = instance;
   }, []);
 
   const nextTickAnimation = useCallback(() => {
     if (refAnimationInstance.current) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       refAnimationInstance.current(getAnimationSettings(0.1, 0.3));
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       refAnimationInstance.current(getAnimationSettings(0.7, 0.9));
     }
   }, []);
 
   const startAnimation = useCallback(() => {
     if (!intervalId) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       setIntervalId(setInterval(nextTickAnimation, 400));
     }
   }, [intervalId, nextTickAnimation]);
 
   const pauseAnimation = useCallback(() => {
     clearInterval(intervalId);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     setIntervalId(null);
   }, [intervalId]);
 
@@ -96,7 +105,18 @@ export default function Section() {
       ) : (
         <GameStart gameObj={gameObj} setGameObj={setGameObj} />
       )}
-      <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
+
+      <ReactCanvasConfetti
+        refConfetti={getInstance}
+        style={{
+          position: "fixed",
+          pointerEvents: "none",
+          width: "100%",
+          height: "100%",
+          top: 0,
+          left: 0,
+        }}
+      />
     </section>
   );
 }
