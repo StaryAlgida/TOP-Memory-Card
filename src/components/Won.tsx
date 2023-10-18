@@ -16,7 +16,7 @@ import img13 from "../assets/cards_img/13.webp";
 import img14 from "../assets/cards_img/14.webp";
 import img15 from "../assets/cards_img/15.png";
 
-export default function Loose({ gameObj, setGameObj }: GameProps) {
+export default function Won({ gameObj, setGameObj }: GameProps) {
   const generateCards = (quantity: number) => {
     const list = [
       img1,
@@ -52,27 +52,21 @@ export default function Loose({ gameObj, setGameObj }: GameProps) {
 
   const reset = () => {
     const newObj = { ...gameObj };
-    newObj.isLoose = false;
-    if (newObj.bestScore < newObj.score) {
-      newObj.bestScore = newObj.score;
-    }
-    newObj.score = 0;
+    newObj.isWon = false;
     generateCards(newObj.difficulty);
     setGameObj({ ...newObj });
   };
+
   const returnMenu = () => {
     const newObj = { ...gameObj };
-    newObj.isLoose = false;
+    newObj.isWon = false;
     newObj.isMenu = true;
-    if (newObj.bestScore < newObj.score) {
-      newObj.bestScore = newObj.score;
-    }
-    newObj.score = 0;
     setGameObj({ ...newObj });
   };
+
   return (
     <div className="menu">
-      <h1>You Loose</h1>
+      <h1>You Won</h1>
       <div className="dificulty">
         <button className="dificulty-button" onClick={reset}>
           Reset

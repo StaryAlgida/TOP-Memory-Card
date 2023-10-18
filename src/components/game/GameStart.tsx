@@ -1,5 +1,6 @@
 import CardPrint from "../CardPrint";
 import Loose from "../Loose";
+import Won from "../Won";
 import { Card, GameProps } from "../interfaces/Game";
 
 export default function GameStart({ gameObj, setGameObj }: GameProps) {
@@ -14,7 +15,6 @@ export default function GameStart({ gameObj, setGameObj }: GameProps) {
 
   const loose = () => {
     const newObj = { ...gameObj };
-    // newObj.isMenu = true;
     newObj.isLoose = true;
     newObj.cards = [];
     setGameObj({ ...newObj });
@@ -28,8 +28,17 @@ export default function GameStart({ gameObj, setGameObj }: GameProps) {
       newObj.cards[cardId].is_clicked = true;
       newObj.score += 1;
 
-      randomCards();
-      setGameObj({ ...newObj });
+      if (newObj.score === newObj.difficulty) {
+        newObj.cards = [];
+        newObj.bestScore = 0;
+        newObj.score = 0;
+        newObj.isWon = true;
+        console.log("won");
+        setGameObj({ ...newObj });
+      } else {
+        randomCards();
+        setGameObj({ ...newObj });
+      }
     } else {
       loose();
       // reset
@@ -38,7 +47,9 @@ export default function GameStart({ gameObj, setGameObj }: GameProps) {
 
   return (
     <div className="container">
-      {gameObj.isLoose ? (
+      {gameObj.isWon ? (
+        <Won gameObj={gameObj} setGameObj={setGameObj} />
+      ) : gameObj.isLoose ? (
         <Loose gameObj={gameObj} setGameObj={setGameObj} />
       ) : (
         <CardPrint gameObj={gameObj} handleClick={handleClick} />

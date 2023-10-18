@@ -11,6 +11,7 @@ interface Game {
   difficulty: number;
   isMenu: boolean;
   isLoose: boolean;
+  isWon: boolean;
 }
 
 interface GameProps {

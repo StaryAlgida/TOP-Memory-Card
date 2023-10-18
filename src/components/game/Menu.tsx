@@ -62,7 +62,7 @@ export default function Menu({ gameObj, setGameObj }: GameProps) {
     <div className="menu">
       <h1>MENU</h1>
       <div className="dificulty">
-        <button onClick={() => startGame(6)} className="dificulty-button easy">
+        <button onClick={() => startGame(3)} className="dificulty-button easy">
           Easy
         </button>
         <button
